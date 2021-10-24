@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                    http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.draksterau</groupId>
+    <artifactId>Regenerator</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Regenerator</name>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <build>
+        <defaultGoal>clean package</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.7.0</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
+
+    <repositories>
+
+        <repository>
+            <id>github</id>
+            <name>GitHub TownyAdvanced Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/TownyAdvanced/Towny/</url>
+        </repository>
+
+        <repository>
+            <id>papermc-repo</id>
+            <url>https://papermc.io/repo/repository/maven-public/</url>
+        </repository>
+
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+
+        <repository>
+            <id>mojang</id>
+            <name>Mojang's Repository</name>
+            <url>https://libraries.minecraft.net/</url>
+        </repository>
+
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+            <releases><enabled>true</enabled></releases>
+            <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+
+        <repository>
+            <id>maven-elmakers</id>
+            <url>http://maven.elmakers.com/repository/</url>
+        </repository>
+
+        <repository>
+            <id>minecraft-repo</id>
+            <url>https://libraries.minecraft.net/</url>
+        </repository>
+
+<!--        <repository>
+            <id>worldedit-core</id>
+            <url>http://maven.sk89q.com/repo/</url>
+        </repository>-->
+
+        <repository>
+            <id>worldguard-core</id>
+            <url>http://maven.sk89q.com/repo/</url>
+        </repository>
+
+        <!-- WorldEdit -->
+        <repository>
+            <id>enginehub</id>
+            <url>https://maven.enginehub.org/repo/</url>
+        </repository>
+        <!-- PlotSquared -->
+        <repository>
+            <id>IntellectualSites</id>
+            <url>https://mvn.intellectualsites.com/content/groups/public/</url>
+        </repository>
+
+
+    </repositories>
+
+    <dependencies>
+<!--          <dependency>
+              <groupId>com.destroystokyo.paper</groupId>
+              <artifactId>paper-api</artifactId>
+              <version>1.15.2-R0.1-SNAPSHOT</version>
+              <scope>provided</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.spigotmc</groupId>
+              <artifactId>spigot-api</artifactId>
+              <version>1.15.2-R0.1-SNAPSHOT</version>
+              <scope>provided</scope>
+          </dependency>
+          <dependency>
+              <groupId>org.spigotmc</groupId>
+              <artifactId>spigot</artifactId>
+              <version>1.15.2-R0.1-SNAPSHOT</version>
+              <scope>provided</scope>
+          </dependency>-->
+
+               <dependency>
+                   <groupId>com.destroystokyo.paper</groupId>
+                   <artifactId>paper-api</artifactId>
+                   <version>1.16.5-R0.1-SNAPSHOT</version>
+                   <scope>provided</scope>
+               </dependency>
+               <dependency>
+                   <groupId>org.spigotmc</groupId>
+                   <artifactId>spigot-api</artifactId>
+                   <version>1.16.5-R0.1-SNAPSHOT</version>
+                   <scope>provided</scope>
+               </dependency>
+               <dependency>
+                   <groupId>org.spigotmc</groupId>
+                   <artifactId>spigot</artifactId>
+                   <version>1.16.4-R0.1-SNAPSHOT</version>
+                   <scope>provided</scope>
+               </dependency>
+
+        <!--Bukkit API-->
+        <dependency>
+            <groupId>org.bukkit</groupId>
+            <artifactId>bukkit</artifactId>
+            <version>1.15.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <!--CraftBukkit API-->
+        <dependency>
+            <groupId>com.mojang</groupId>
+            <artifactId>authlib</artifactId>
+            <version>1.5.25</version>
+        </dependency>
+        <dependency>
+            <groupId>com.sk89q.worldedit</groupId>
+            <artifactId>worldedit-core</artifactId>
+            <version>7.3.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sk89q.worldedit</groupId>
+            <artifactId>worldedit-bukkit</artifactId>
+            <version>7.3.0-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.sk89q.worldguard</groupId>
+            <artifactId>worldguard-core</artifactId>
+            <version>7.0.4-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.palmergames.bukkit.towny</groupId>
+            <artifactId>Towny</artifactId>
+            <version>0.96.2.0</version>
+        </dependency>
+
+        <!-- PlotSquared Core API -->
+        <dependency>
+            <groupId>com.plotsquared</groupId>
+            <artifactId>PlotSquared-Core</artifactId>
+            <version>5.13.3</version>
+        </dependency>
+
+        <!-- PlotSquared Bukkit API -->
+        <dependency>
+            <groupId>com.plotsquared</groupId>
+            <artifactId>PlotSquared-Bukkit</artifactId>
+            <version>5.13.3</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>PlotSquared-Core</artifactId>
+                    <groupId>*</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+<!--        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>3.4.5</version>
+        </dependency>-->
+
+    </dependencies>
+</project>
+
