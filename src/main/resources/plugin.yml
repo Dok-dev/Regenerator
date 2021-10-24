@@ -1,0 +1,14 @@
+name: Regenerator
+version: ${project.version}
+main: com.draksterau.regenerator.RegeneratorPlugin
+api-version: 1.13
+softdepend: [ Factions, GriefPrevention, WorldGuard, RedProtect, Towny ]
+depend: [ WorldEdit ]
+description: Regenerator is a perpetual world plugin that supports many grief prevention plugins.
+author: Bysokar
+website: https://www.spigotmc.org/resources/regenerator.23409/
+commands:
+  regenerator:
+    description: Core Regenerator command.
+    usage: /regenerator
+load: POSTWORLD

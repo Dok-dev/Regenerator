@@ -1,0 +1,69 @@
+############################################################################################################################
+## Regenerator, a Perpetual world plugin that integrates with Multiverse, Multiworld and several grief prevention plugins.##
+############################################################################################################################
+# The main configuration file no longer stores any data relating to what worlds to handle etc.
+# For integration configuration, please see the /integrations/<plugin>.yml file associated with your grief protection plugin.
+# For world configuration (Such as intervals between chunks), see /worlds/worldname.yml.
+############################################################################################################################
+# noGriefRun must be set to true if there are no grief prevention plugins installed and you want the plugin to work. 
+# minTpsRegen is the Minimum TPS that the server must have to perform regeneration.
+# defaultAutoRegen sets whether or not or not new worlds that are loaded should have manual regen enabled by default
+# defaultManualRegen sets whether or not new worlds that are loaded should have auto regen enabled by default
+# percentIntervalRuntime (double) is the percentage of parseInterval that can be used for regeneration tasks. 0.1 is 10%, 0.5 is 50% and 1.0 is 100%.
+# parseInterval (long) is the time in seconds between checks for inactive chunks.
+# numChunksPerParse (long) is the number of chunks total that can be regenerated per parse. (Additional inactive chunks will be delayed to next parse)
+# distanceNearbyMinimum (int) is the number of blocks away a player must be before the regeneration event is allowed to occur.
+# targetUnloadedChunks when set to true will cause regenerator to process unloaded chunks when automatically regenerating.
+# targetLoadedChunks when set to true will cause regenerator to process loaded chunks when automatically regenerating.
+# clearRegeneratedChunksOfEntities when set to true will cause regenerator to clear any living or item based entity from the chunk being regenerated.
+# regenerateChunksInUseByPlayers when set to true will regenerate chunks that are currently loaded by players. This may have graphical issues that require a relog.
+# excludeEntityTypesFromRegeneration is a string list of all type names (as defined in : https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html). This support Forge Entity Types also, for example, CustomNPCs as below.
+############################################################################################################################
+#.
+# The main configuration file no longer stores any data relating to what worlds to handle etc.
+# For integration configuration, please see the /integrations/<plugin>.yml file associated with your grief protection plugin.
+# For world configuration (Such as intervals between chunks), see /worlds/worldname.yml.
+configVersion: 3.5.1
+noGriefRun: false
+#минимально разрешенный TPS для процесса регенерации
+minTpsRegen: 15
+defaultAutoRegen: true
+defaultManualRegen: true
+activityTimeStart: 0
+activityTimeEnd: 6
+#процент от интервала фазы регенерации на задачи регенерации
+percentIntervalRuntime: 0.25
+#интервал в секундах между фазами регенерации (tasks)
+parseInterval: 60
+numChunksPerParse: 5.0
+#минимальная разрещенная дистанция до игрока в блоках при регенерации, работает если true "skippingRegenOfLoadedChunk"
+distanceNearbyMinimum: 32
+#обрабатывать незагруженные чанки
+targetUnloadedChunks: true
+#обрабатывать загруженные (активные) чанки
+targetLoadedChunks: true
+regenerateChunksInUseByPlayers: true
+clearRegeneratedChunksOfEntities: false
+# excludeEntityTypesFromRegeneration: []
+excludeEntityTypesFromRegeneration:
+    - CUSTOMNPCS_CUSTOMNPC
+#добавляет новый чанк в список при его активизации игроком
+cacheChunksOnLoad: true
+fakePlayerUUID: c48eb94b-7d1e-4def-b8fc-f0405fbbb34a
+enableUnknownProtectionDetection: false
+language: ENGLISH
+debugMode: false
+#после скольких секунд чанк можно добавить в регенерацию
+defaultRegenInterval: 3600
+# player activity check (-1 to disable)
+regenerateUninitialisedChunksNearPlayersRadius: -1
+regenerateUninitialisedChunksNearPlayersInstant: false
+#запрет на регенерацию при живых игроках на сервере
+disableRegenJobsWithOnlinePlayers: false
+#Настройки подключения к БД
+sqlServer: localhost
+sqlServerPort: 3306
+sqlUser: root
+sqlPassword: root
+database: regenerator
+sqlTablePrefix: regen
